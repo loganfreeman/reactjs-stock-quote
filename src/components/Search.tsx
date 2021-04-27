@@ -8,7 +8,9 @@ import { isEmptyOrSpaces } from '../utils/stringUtils';
 import StockService from '../services/stock';
 const { searchSymbol } = StockService;
 
-export default function Asynchronous() {
+export default function SearchStock({onChange}: {
+  onChange: (v: any[]) => void
+}) {
   const [open, setOpen] = React.useState<boolean>(false);
   const [options, setOptions] = React.useState<any[]>([]);
   const [searchValue, setSearchValue] = React.useState<string>('');
@@ -46,7 +48,8 @@ export default function Asynchronous() {
 
   return (
     <Autocomplete
-      id="asynchronous-demo"
+      multiple
+      id="stock-search-input"
       style={{ width: 300 }}
       open={open}
       onOpen={() => {
@@ -55,6 +58,7 @@ export default function Asynchronous() {
       onClose={() => {
         setOpen(false);
       }}
+      onChange={(e, v) => onChange(v)}
       getOptionSelected={(option, value) => option["1. symbol"] === value["1. symbol"]}
       getOptionLabel={(option) => option["1. symbol"]}
       options={options}
