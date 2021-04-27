@@ -8,7 +8,7 @@ export default function() {
 
   return (
     <div>
-      <p><Button onClick={e => history.push("/")}>Home</Button></p>
+      <p><Button variant="contained" onClick={e => history.push("/")}>Home</Button></p>
       <h1>{symbol}</h1>
     </div>
   )

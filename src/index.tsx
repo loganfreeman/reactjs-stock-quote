@@ -3,10 +3,27 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import ErrorBoundary from './ErrorBoundary';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  useHistory
+} from "react-router-dom";
+import {Helmet} from "react-helmet";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+      <ErrorBoundary className="App">
+        <Router>
+          <App />
+        </Router>
+
+        <Helmet>
+            <meta charSet="utf-8" />
+            <title>Stock Quote</title>
+        </Helmet>
+      </ErrorBoundary>
   </React.StrictMode>,
   document.getElementById('root')
 );
