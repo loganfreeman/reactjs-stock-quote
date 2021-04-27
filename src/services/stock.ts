@@ -37,4 +37,12 @@ export default {
       apikey: API_KEY
     })
   },
+
+  daily(symbol: string) {
+    return get(STOCK_QUERY_URL, {
+      function: "TIME_SERIES_DAILY",
+      symbol: symbol,
+      apikey: API_KEY
+    })
+  },
 }

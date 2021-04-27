@@ -6,6 +6,8 @@ import Autocomplete from '@material-ui/lab/Autocomplete';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import { isEmptyOrSpaces } from '../utils/stringUtils';
 import StockService from '../services/stock';
+import { throttle } from 'lodash';
+
 const { searchSymbol } = StockService;
 
 export default function SearchStock({onChange}: {
@@ -15,25 +17,28 @@ export default function SearchStock({onChange}: {
   const [options, setOptions] = React.useState<any[]>([]);
   const [searchValue, setSearchValue] = React.useState<string>('');
   const loading = open && options.length == 0;
+    const throttled = throttle(async (active) => {
+    const {
+      data: {
+        bestMatches,
+      },
+    } = await searchSymbol(searchValue);
+
+    if (active) {
+      setOptions(bestMatches);
+    }
+
+  }, 1000*30);
+
   React.useEffect(() => {
     let active = true;
 
-    if (isEmptyOrSpaces(searchValue) || !open) {
+    if (isEmptyOrSpaces(searchValue) || !open || searchValue.length < 2) {
       return undefined;
     }
 
-    (async () => {
-      const {
-        data: {
-          bestMatches,
-        },
-      } = await searchSymbol(searchValue);
 
-      if (active) {
-        setOptions(bestMatches);
-      }
-
-    })();
+    throttled(active);
 
     return () => {
       active = false;
