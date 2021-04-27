@@ -8,8 +8,17 @@ import { normalize } from './utils/normalize';
 import Stock from "./components/Stock";
 import ErrorBoundary from './ErrorBoundary';
 import Grid from '@material-ui/core/Grid';
+import Button from '@material-ui/core/Button';
+import Chart from './components/Chart'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 function App() {
+
   const [stocks, setStocks] = useState<any[]>([]);
 
   const [favorites, setFavorites] = useState<any[]>([]);
@@ -27,23 +36,32 @@ function App() {
   return (
 
       <ErrorBoundary className="App">
+        <Router>
+          <Switch>
+            <Route path="/detail/:symbol">
+              <Chart />
+            </Route>
+            <Route path="/">
+              <Grid container spacing={3}>
+                <Grid item xs={6}>
+                  <h1>Enter stock symbol to search</h1>
+                  <Search onChange={stocks => setStocks(takeRight(stocks, 3).reverse().map(s => normalize(s)))}/>
+                  {
+                    stocks.map(stock => <Stock stock={stock} key={stock.symbol} />)
+                  }
+              </Grid>
+                <Grid item xs={6}>
+                  <h1>My Favorites</h1>
+                  {
+                    favorites.map(stock => <Stock stock={stock} key={stock.symbol} />)
+                  }
 
-        <Grid container spacing={3}>
-          <Grid item xs={6}>
-            <h1>Enter stock symbol to search</h1>
-            <Search onChange={stocks => setStocks(takeRight(stocks, 3).reverse().map(s => normalize(s)))}/>
-            {
-              stocks.map(stock => <Stock stock={stock} key={stock.symbol} />)
-            }
-        </Grid>
-          <Grid item xs={6}>
-            <h1>My Favorites</h1>
-            {
-              favorites.map(stock => <Stock stock={stock} key={stock.symbol} />)
-            }
+                </Grid>
+              </Grid>
+            </Route>
+          </Switch>
+        </Router>
 
-          </Grid>
-        </Grid>
         <Helmet>
             <meta charSet="utf-8" />
             <title>Stock Quote</title>
