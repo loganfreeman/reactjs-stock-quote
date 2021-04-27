@@ -6,7 +6,7 @@ export const STOCK_QUERY_URL = "https://www.alphavantage.co/query"
 const API_KEY = "ZGN5MW8SCFQZBPBN";
 
 export default {
-  searchSymbol(symbol: string) {
+  searchSymbol(symbol: string): Promise<{data: {bestMatches: any[]}}> {
     return get(STOCK_QUERY_URL, {
       function: "SYMBOL_SEARCH",
       keywords: symbol,
