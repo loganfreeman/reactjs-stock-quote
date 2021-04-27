@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react'
 
 import Card from '@material-ui/core/Card';
+import CardHeader from '@material-ui/core/CardHeader';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import TrendingDown from '@material-ui/icons/TrendingDown';
@@ -15,10 +16,12 @@ export default function({stock}: {stock:{symbol: string, name: string}}) {
         "Meta Data": meta,
         "Time Series (Daily)": timeSeriesDaily
       }} = await daily(stock.symbol);
-      setLast(timeSeriesDaily[meta["3. Last Refreshed"]])
+      if(meta) setLast(timeSeriesDaily[meta["3. Last Refreshed"]])
     })()
   }, [stock])
   return (
-    <div></div>
+    <Card>
+      <CardHeader title={stock.symbol} subheader={stock.name} />
+    </Card>
   )
 }

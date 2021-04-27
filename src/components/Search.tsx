@@ -24,7 +24,7 @@ export default function SearchStock({onChange}: {
       },
     } = await searchSymbol(searchValue);
 
-    if (active) {
+    if (active && bestMatches) {
       setOptions(bestMatches);
     }
 

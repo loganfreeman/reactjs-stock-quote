@@ -5,13 +5,14 @@ import { useState } from 'react';
 import Search from './components/Search';
 import { takeRight } from 'lodash';
 import { normalize } from './utils/normalize';
-import Stock from "./components/Stock"
+import Stock from "./components/Stock";
+import ErrorBoundary from './ErrorBoundary'
 function App() {
   const [stocks, setStocks] = useState<any[]>([]);
 
   return (
 
-      <div className="App">
+      <ErrorBoundary className="App">
         <Search onChange={setStocks}/>
         {
           takeRight(stocks, 3).reverse().map(s => normalize(s)).map(stock => <Stock stock={stock} key={stock.symbol} />)
@@ -21,7 +22,7 @@ function App() {
             <title>Stock Quote</title>
             <link rel="canonical" href="http://mysite.com/example" />
         </Helmet>
-      </div>
+      </ErrorBoundary>
   );
 }
 
