@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/loganfreeman/reactjs-stock-quote/static/css/main.9d5b29c0.chunk.css",
+    "main.js": "/loganfreeman/reactjs-stock-quote/static/js/main.e1f64b96.chunk.js",
+    "main.js.map": "/loganfreeman/reactjs-stock-quote/static/js/main.e1f64b96.chunk.js.map",
+    "runtime-main.js": "/loganfreeman/reactjs-stock-quote/static/js/runtime-main.b30bb8f4.js",
+    "runtime-main.js.map": "/loganfreeman/reactjs-stock-quote/static/js/runtime-main.b30bb8f4.js.map",
+    "static/js/2.bf99f342.chunk.js": "/loganfreeman/reactjs-stock-quote/static/js/2.bf99f342.chunk.js",
+    "static/js/2.bf99f342.chunk.js.map": "/loganfreeman/reactjs-stock-quote/static/js/2.bf99f342.chunk.js.map",
+    "static/js/3.e03fb657.chunk.js": "/loganfreeman/reactjs-stock-quote/static/js/3.e03fb657.chunk.js",
+    "static/js/3.e03fb657.chunk.js.map": "/loganfreeman/reactjs-stock-quote/static/js/3.e03fb657.chunk.js.map",
+    "index.html": "/loganfreeman/reactjs-stock-quote/index.html",
+    "static/css/main.9d5b29c0.chunk.css.map": "/loganfreeman/reactjs-stock-quote/static/css/main.9d5b29c0.chunk.css.map",
+    "static/js/2.bf99f342.chunk.js.LICENSE.txt": "/loganfreeman/reactjs-stock-quote/static/js/2.bf99f342.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b30bb8f4.js",
+    "static/js/2.bf99f342.chunk.js",
+    "static/css/main.9d5b29c0.chunk.css",
+    "static/js/main.e1f64b96.chunk.js"
+  ]
+}
