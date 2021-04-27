@@ -54,3 +54,7 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 
 ![line chart](https://github.com/loganfreeman/reactjs-stock-quote/blob/master/resources/line.png)
+
+## Stock API
+
+https://www.alphavantage.co/documentation/
