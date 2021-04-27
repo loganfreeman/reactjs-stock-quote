@@ -5,7 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import ErrorBoundary from './ErrorBoundary';
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Switch,
   Route,
   useHistory
