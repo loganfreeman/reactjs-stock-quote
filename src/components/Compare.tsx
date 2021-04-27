@@ -3,6 +3,7 @@ import { useHistory, useParams } from "react-router-dom";
 import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import StockService from '../services/stock';
+import StepSeries from './StepSeries'
 const { earnings } = StockService;
 export default function() {
   const history = useHistory();
@@ -32,6 +33,8 @@ export default function() {
           </Button>
         ))}
       </ButtonGroup>
+
+      <StepSeries />
     </div>
   )
 }
